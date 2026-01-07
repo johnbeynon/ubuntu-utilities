@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: mongosync-utility
+    env: docker
+    # plan: start <- this is optional; defaults to 'start' if not specified, if you need a bigger instance set this
+    # region: frankfurt <- this is optional; defaults to 'oregon' if not specified, set your preferred region here
+    dockerCommand: /bin/bash -c while true; do sleep 30; done;
+    disk:
+      name: utility-state
+      mountPath: /var/state
+      sizeGB: 1 # Set disksize as needed
